@@ -6,22 +6,22 @@ import { FaUsers } from "react-icons/fa6";
 
 export const features: Feature[] = [
   {
-    icon: <RxLightningBolt size="48" />,
+    icon: <RxLightningBolt size="48" className="text-primary" />,
     title: "Lightning Fast",
     text: "Real-time messaging with minimal latency",
   },
   {
-    icon: <BiShield size="48" />,
+    icon: <BiShield size="48" className="text-primary" />,
     title: "Secure",
     text: "Secure authentication service to protect user privacy",
   },
   {
-    icon: <FaUsers size="48" />,
+    icon: <FaUsers size="48" className="text-primary" />,
     title: "Group Chat",
     text: "Seamless collaboration with teams",
   },
   {
-    icon: <FiMessageCircle size="48" />,
+    icon: <FiMessageCircle size="48" className="text-primary" />,
     title: "Rich Media",
     text: "Share files, images and more",
   },
