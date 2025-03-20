@@ -28,10 +28,10 @@ function Navbar() {
             className="p-2 mt-3 w-52 shadow z-1 menu menu-md dropdown-content bg-base-100 rounded-box"
           >
             <li>
-              <Link href="/">Contact</Link>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href="/">About</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -43,10 +43,10 @@ function Navbar() {
       <div className="hidden lg:flex navbar-center">
         <ul className="px-1 menu menu-horizontal">
           <li>
-            <Link href="/">About</Link>
+            <Link href="/about">About</Link>
           </li>
           <li>
-            <Link href="">Contact</Link>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
       </div>
