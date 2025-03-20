@@ -14,7 +14,7 @@ function Register() {
     <div className="flex flex-col gap-4 justify-center items-center h-full">
       <form
         action={action}
-        className="flex flex-col gap-2 p-4 rounded-lg bg-base-200"
+        className="flex flex-col gap-2 p-4 border fieldset border-base-300 rounded-box bg-base-200"
       >
         <h1 className="text-xl font-bold text-center">Register</h1>
         {error?.message && (
@@ -67,7 +67,7 @@ function Register() {
           >
             Register
           </button>
-          <p className="flex gap-1">
+          <p className="flex gap-1 text-sm">
             <span>Already have an account?</span>
             <Link href="/login" className="link link-primary">
               Login
