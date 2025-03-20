@@ -1,4 +1,6 @@
+import ContactForm from "../components/ContactForm";
 import ContactInfoCard from "../components/ContactInfoCard";
+import Faq from "../components/Faq";
 import { contactInfo } from "../lib/data";
 
 function Contact() {
@@ -21,6 +23,8 @@ function Contact() {
           />
         ))}
       </div>
+      <Faq />
+      <ContactForm />
     </div>
   );
 }
