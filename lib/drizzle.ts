@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { text, pgTable, timestamp, boolean } from "drizzle-orm/pg-core";
 
@@ -12,6 +13,10 @@ export const user = pgTable("user", {
   createdAt: timestamp("created_at").notNull(),
   updatedAt: timestamp("updated_at").notNull(),
 });
+
+export const userRelations = relations(user, ({ many }) => ({
+  message: many(message),
+}));
 
 export const session = pgTable("session", {
   id: text("id").primaryKey(),
@@ -53,4 +58,67 @@ export const verification = pgTable("verification", {
   updatedAt: timestamp("updated_at"),
 });
 
-export const schema = { user, session, account, verification };
+export const message = pgTable("message", {
+  id: text("id")
+    .primaryKey()
+    .notNull()
+    .$defaultFn(() => crypto.randomUUID()),
+  content: text("content").notNull(),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+  senderId: text("sender_id")
+    .notNull()
+    .references(() => user.id),
+  chatId: text("chat_id")
+    .notNull()
+    .references(() => chat.id),
+});
+
+export const messageRelations = relations(message, ({ one }) => ({
+  user: one(user, {
+    fields: [message.senderId],
+    references: [user.id],
+  }),
+  chat: one(chat, {
+    fields: [message.chatId],
+    references: [chat.id],
+  }),
+}));
+
+export const chat = pgTable("chat", {
+  id: text("id")
+    .primaryKey()
+    .notNull()
+    .$defaultFn(() => crypto.randomUUID()),
+  name: text("name").notNull(),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+});
+
+export const chatRelations = relations(chat, ({ many }) => ({
+  message: many(message),
+}));
+
+export const chatMember = pgTable("chat_member", {
+  id: text("id")
+    .primaryKey()
+    .notNull()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id),
+  chatId: text("chat_id")
+    .notNull()
+    .references(() => chat.id),
+});
+
+export const chatMemberRelations = relations(chatMember, ({ one }) => ({
+  user: one(user, {
+    fields: [chatMember.userId],
+    references: [user.id],
+  }),
+  chat: one(chat, {
+    fields: [chatMember.chatId],
+    references: [chat.id],
+  }),
+}));
+
+export const schema = { user, session, account, verification, message, chat };
