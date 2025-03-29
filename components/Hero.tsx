@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
 
 function Hero() {
@@ -13,13 +14,16 @@ function Hero() {
             collaboration. Connect with colleagues and friends in real-time.
           </p>
           <div className="flex gap-4 justify-center items-center">
-            <button className="flex gap-2 items-center btn btn-primary group">
+            <Link
+              href="/register"
+              className="flex gap-2 items-center btn btn-primary group"
+            >
               <span>Get Started</span>
               <FaArrowRight
                 size="12"
                 className="transition-transform duration-200 group-hover:translate-x-0.5"
               />
-            </button>
+            </Link>
             <button className="btn btn-outline">Learn More</button>
           </div>
         </div>
