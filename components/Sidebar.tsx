@@ -1,6 +1,7 @@
 import { chat, db } from "@/lib/drizzle";
 import { getSession } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { TbLayoutSidebarLeftCollapse } from "react-icons/tb";
 import SignOutBtn from "./SignOutBtn";
 import { Chat } from "@/lib/types";
