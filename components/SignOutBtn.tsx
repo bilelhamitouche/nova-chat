@@ -15,7 +15,7 @@ function SignOutBtn() {
           },
         });
       }}
-      className="btn btn-error"
+      className="btn btn-error btn-sm text-primary-content"
     >
       Sign Out
     </button>
