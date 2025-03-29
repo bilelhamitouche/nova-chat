@@ -56,8 +56,8 @@ async function Sidebar({ children }: { children: React.ReactNode }) {
                 className="p-2 mt-2 space-y-1 w-64 shadow-sm dropdown-content menu bg-base-100 rounded-box z-1"
               >
                 <li>
-                  <Link href="/settings" className="btn btn-sm btn-ghost">
-                    Settings
+                  <Link href="/profile" className="btn btn-sm btn-ghost">
+                    Profile
                   </Link>
                 </li>
                 <li>
