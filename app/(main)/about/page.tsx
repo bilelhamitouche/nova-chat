@@ -56,7 +56,11 @@ function About() {
           We're always looking for talented individuals who share our passion
           for innovation and privacy-focused communication.
         </p>
-        <Link href="emploitic.com" className="btn btn-primary">
+        <Link
+          href="https://emploitic.com"
+          className="btn btn-primary"
+          target="_blank"
+        >
           View Open Positions
         </Link>
       </div>
