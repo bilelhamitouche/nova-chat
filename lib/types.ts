@@ -5,3 +5,17 @@ export type Feature = {
   title: string;
   text: string;
 };
+
+export type Message = {
+  id: string;
+  content: string;
+  createdAt: Date;
+  senderId: string;
+  chatId: string;
+};
+
+export type Chat = {
+  id: string;
+  name: string;
+  createdAt: Date;
+};
