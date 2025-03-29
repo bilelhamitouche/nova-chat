@@ -42,7 +42,7 @@ export async function login(_state: State, formData: FormData) {
       };
     }
   }
-  redirect("/dashboard");
+  redirect("/chat");
 }
 
 export async function register(_state: State, formData: FormData) {
