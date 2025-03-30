@@ -21,8 +21,6 @@ function Profile() {
         <input type="text" name="name" className="input" />
         <label>Email</label>
         <input type="email" name="email" className="input" />
-        <label>Password</label>
-        <input type="password" name="password" className="input" />
         <button type="submit" className="mt-2 btn btn-primary max-w-fit">
           Save
         </button>
