@@ -35,9 +35,9 @@ async function Sidebar({ children }: { children: React.ReactNode }) {
                 role="button"
                 className="flex justify-between items-center w-full cursor-pointer btn btn-ghost"
               >
-                <span>{session?.user.email}</span>
+                <span>{session?.user.name}</span>
                 {session?.user.image ? (
-                  <div className="avatar">
+                  <div className="avatar size-8">
                     <Image
                       src={session?.user.image as string}
                       alt="Avatar image"
