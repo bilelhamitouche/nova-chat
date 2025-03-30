@@ -38,7 +38,9 @@ export default function ChatComponent({
             <Image
               src={session?.user.image}
               alt="user avatar"
-              className="chat-image size-8"
+              width="30"
+              height="30"
+              className="rounded-full chat-image size-8"
             />
           ) : (
             <div className="flex justify-center items-center rounded-full avatar chat-image size-8 bg-primary text-primary-content">
