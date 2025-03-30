@@ -21,8 +21,19 @@ function Profile() {
         <input type="text" name="name" className="input" />
         <label>Email</label>
         <input type="email" name="email" className="input" />
-        <button type="submit" className="mt-2 btn btn-primary max-w-fit">
-          Save
+        <button
+          type="submit"
+          className="mt-2 btn btn-primary max-w-fit"
+          disabled={isPending}
+        >
+          {isPending ? (
+            <div className="flex gap-1 items-center">
+              <span className="loading loading-spinner"></span>
+              <span>Saving</span>
+            </div>
+          ) : (
+            <span>Save</span>
+          )}
         </button>
       </form>
     </div>
