@@ -1,6 +1,8 @@
 "use server";
 
 import { auth } from "@/lib/auth";
+import { APIError } from "better-auth/api";
+import { headers } from "next/headers";
 
 export type State = {
   err: string;
@@ -15,6 +17,7 @@ export async function updateProfileAction(_state: State, formData: FormData) {
         body: {
           name,
         },
+        headers: await headers(),
       });
     }
     if (email) {
@@ -22,10 +25,15 @@ export async function updateProfileAction(_state: State, formData: FormData) {
         body: {
           newEmail: email,
         },
+        headers: await headers(),
       });
     }
   } catch (err) {
-    console.log(err);
+    if (err instanceof APIError) {
+      return {
+        err: err.message,
+      };
+    }
   }
 }
 
@@ -40,11 +48,14 @@ export async function updatePasswordAction(_state: State, formData: FormData) {
           currentPassword,
           newPassword: password,
         },
+        headers: await headers(),
       });
     }
   } catch (err) {
-    return {
-      err: "Error while changing password",
-    };
+    if (err instanceof APIError) {
+      return {
+        err: err.message,
+      };
+    }
   }
 }
